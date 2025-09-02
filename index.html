@@ -21,7 +21,9 @@
     <style>
       .body {
         background-image: url(./bg.jpj.png);
+        background-repeat: no-repeat;
         background-size: cover;
+        height: 100vh;
       }
 
       .pages:hover {
@@ -35,53 +37,175 @@
         background-color: white;
         font-weight: bold;
       }
+
+      .join-club:hover {
+        color: black;
+        border-bottom: 1px solid black;
+        background-color: white;
+        font-weight: bold;
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      }
+
+      .explore-courses:hover {
+        color: rgba(30, 58, 138, 1);
+        border-bottom: 1px solid black;
+        background-color: rgba(245, 158, 11, 1);
+        font-weight: bold;
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      }
+
+      /* menu items */
+
+      .menu {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+      }
+
+      .menu li {
+        cursor: pointer;
+      }
+
+      .signup {
+        background: #f59e0b; /* amber-500 */
+        padding: 5px 10px;
+        border-radius: 8px;
+        color: white;
+        font-weight: bold;
+      }
+
+      /* 3-dot icon hidden by default (desktop) */
+      .menu-icon {
+        display: none;
+        font-size: 26px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      /* Hide checkbox */
+      #menu-toggle {
+        display: none;
+      }
+
+      /* media screen */
+
+      @media screen and (max-width: 768px) {
+        .left-nav {
+          width: 50%;
+        }
+        .nav-title {
+          font-size: 15px;
+        }
+
+        .menu {
+          display: none;
+          flex-direction: column;
+          background: #1e3a8a;
+          position: absolute;
+          top: 60px;
+          right: 10px;
+          width: 160px;
+          padding: 10px;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu li {
+          padding: 8px 0;
+        }
+        .pages {
+          align-items: center;
+        }
+        .page {
+          width: 100%;
+          margin-top: 5px;
+        }
+
+        /* show 3-dot icon */
+        .menu-icon {
+          display: block;
+          color: white;
+
+          cursor: pointer;
+          z-index: 10;
+        }
+
+        /* when checked, show menu */
+        #menu-toggle:checked ~ .menu {
+          display: block;
+        }
+
+        /* home body */
+        .body-title {
+          font-size: 30px;
+          text-align: center;
+        }
+        .home-body {
+          margin-top: 20px;
+          margin-right: 50px;
+        }
+        .home-sub-title {
+          margin-top: 10px;
+          text-align: center;
+        }
+        .explore-courses {
+          font-size: 12px;
+        }
+        .join-club {
+          font-size: 12px;
+        }
+      }
     </style>
   </head>
   <body class="body">
     <!-- navbar -->
 
     <nav class="flex justify-around items-center mx-auto">
-      <div class="flex items-center p-1.5 gap-1">
+      <div class="left-nav flex items-center p-1.5 gap-1">
         <img
           src="./club-logo.jpg"
           alt=""
           class="w-[55px] h-[55px] rounded-full p-2"
         />
-        <h1 class="font-semibold text-[25px] text-white">Programming Club</h1>
+        <h1 class="nav-title font-semibold text-[25px] text-white">
+          TPI Programming Club
+        </h1>
       </div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">
+        <i class="fa-solid fa-bars"></i>
+      </label>
 
-      <div>
-        <ol
-          class="order-list flex gap-[30px] mr-[40px] p-[10px] items-center text-white"
+      <ol
+        class="menu order-list flex gap-[30px] mr-[40px] p-[10px] items-center text-white"
+      >
+        <li class="pages"><i class="fa-regular fa-house"></i> Home</li>
+        <li class="pages"><i class="fa-solid fa-people-group"></i> Our Team</li>
+        <li class="pages"><i class="fa-regular fa-user"></i> Gallery</li>
+        <li class="pages" id="login-id">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+        </li>
+        <li id="signup-id"
+          class="page bg-amber-500 rounded-[8px] text-center p-1 text-white w-[100px] h-[35px]"
         >
-          <li class="pages"><i class="fa-regular fa-house"></i> Home</li>
-          <li class="pages">
-            <i class="fa-solid fa-people-group"></i> Our Team
-          </li>
-          <li class="pages"><i class="fa-regular fa-user"></i> Gallery</li>
-          <li class="pages">
-            Login <i class="fa-solid fa-arrow-right-to-bracket"></i>
-          </li>
-          <li
-            class="page bg-amber-500 rounded-[8px] text-center p-1 text-white w-[100px] h-[35px]"
-          >
-            Sign Up
-          </li>
-        </ol>
-      </div>
+          Sign Up
+        </li>
+      </ol>
     </nav>
 
     <!-- body -->
 
-    <div class="ml-[90px] mx-auto">
+    <div class="home-body ml-[90px] mx-auto">
       <div class="mt-[40px]">
-        <h1 class="text-[50px] font-bold text-white">
+        <h1 class="body-title text-[50px] font-bold text-white">
           Welcome to the <br />
           Future of <br />
           Programming
         </h1>
 
-        <p class="mt-[5px] text-white">
+        <p class="home-sub-title mt-[5px] text-white">
           Learn.Build.Share.Grow with the Best <br />
           Programming Community
         </p>
@@ -89,22 +213,42 @@
 
       <div class="flex gap-[30px] mt-[30px]">
         <button
-          class="w-[127px] h-[35px] bg-amber-500 text-blue-900 rounded-[8px] font-bold p-1"
+          id="join-club-id"
+          class="join-club w-[127px] h-[35px] bg-amber-500 text-blue-900 rounded-[8px] font-bold p-1"
         >
           Join Club <i class="fa-solid fa-arrow-right"></i>
         </button>
 
         <button
-          class="w-[140px] h-[35px] bg-[#F5F5F5] rounded-[8px] p-1 text-blue-900 font-bold"
+          id="explore-courses-id"
+          class="explore-courses w-[140px] h-[35px] bg-[#F5F5F5] rounded-[8px] p-1 text-blue-900 font-bold"
         >
           Explore courses
         </button>
       </div>
     </div>
 
-    <script>
-      
-    </script>
+    <!-- script -->
 
+    <script>
+      document
+        .getElementById("join-club-id")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+
+          window.location.href = "./registration.html";
+        });
+
+        document.getElementById('login-id').addEventListener("click",function(e){
+          e.preventDefault();
+          window.location.href = "./login.html";
+        })
+
+        document.getElementById('signup-id').addEventListener("click",function(e){
+          e.preventDefault();
+          window.location.href = "./registration.html";
+        })
+
+    </script>
   </body>
 </html>
