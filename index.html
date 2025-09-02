@@ -121,6 +121,7 @@
         .page {
           width: 100%;
           margin-top: 5px;
+          padding-bottom: 2px;
         }
 
         /* show 3-dot icon */
@@ -167,27 +168,30 @@
         <img
           src="./club-logo.jpg"
           alt=""
-          class="w-[55px] h-[55px] rounded-full p-2"
+          class="w-[50px] h-[50px] rounded-full p-2"
         />
-        <h1 class="nav-title font-semibold text-[25px] text-white">
+        <h1 class="nav-title font-bold text-[25px] text-white">
           TPI Programming Club
         </h1>
       </div>
-      <input type="checkbox" id="menu-toggle" />
-      <label for="menu-toggle" class="menu-icon">
+      <div class="menu-icon">
         <i class="fa-solid fa-bars"></i>
-      </label>
+      </div>
 
       <ol
+        id="menu-item"
         class="menu order-list flex gap-[30px] mr-[40px] p-[10px] items-center text-white"
       >
-        <li class="pages"><i class="fa-regular fa-house"></i> Home</li>
+        <li class="pages" id="home">
+          <i class="fa-regular fa-house"></i> Home
+        </li>
         <li class="pages"><i class="fa-solid fa-people-group"></i> Our Team</li>
         <li class="pages"><i class="fa-regular fa-user"></i> Gallery</li>
         <li class="pages" id="login-id">
           <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
         </li>
-        <li id="signup-id"
+        <li
+          id="signup-id"
           class="page bg-amber-500 rounded-[8px] text-center p-1 text-white w-[100px] h-[35px]"
         >
           Sign Up
@@ -239,16 +243,41 @@
           window.location.href = "./registration.html";
         });
 
-        document.getElementById('login-id').addEventListener("click",function(e){
+      document
+        .getElementById("login-id")
+        .addEventListener("click", function (e) {
           e.preventDefault();
           window.location.href = "./login.html";
-        })
+        });
 
-        document.getElementById('signup-id').addEventListener("click",function(e){
+      document
+        .getElementById("signup-id")
+        .addEventListener("click", function (e) {
           e.preventDefault();
           window.location.href = "./registration.html";
-        })
+        });
+      document.getElementById("home").addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.href = "./index.html";
+      });
 
+      // * menu toggle
+
+      const dots = document.querySelector(".menu-icon");
+      const menu = document.getElementById("menu-item");
+
+      dots.addEventListener("click", (event) => {
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+        event.stopPropagation();
+      });
+
+      document.addEventListener("click", () => {
+        menu.style.display = "none";
+      });
+
+      menu.addEventListener("click", (event) => {
+        event.stopPropagation();
+      });
     </script>
   </body>
 </html>
