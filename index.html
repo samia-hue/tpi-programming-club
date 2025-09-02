@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TPI Programming Club</title>
+    <!-- tailwind cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font awesome cdn -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- style -->
+
+    <style>
+      .body {
+        background-image: url(./bg.jpj.png);
+        background-size: cover;
+      }
+
+      .pages:hover {
+        color: rgb(255, 240, 74);
+        border-bottom: 1px solid rgb(190, 176, 252);
+      }
+
+      .page:hover {
+        color: black;
+        border-bottom: 1px solid black;
+        background-color: white;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <!-- navbar -->
+
+    <nav class="flex justify-around items-center mx-auto">
+      <div class="flex items-center p-1.5 gap-1">
+        <img
+          src="./club-logo.jpg"
+          alt=""
+          class="w-[55px] h-[55px] rounded-full p-2"
+        />
+        <h1 class="font-semibold text-[25px] text-white">Programming Club</h1>
+      </div>
+
+      <div>
+        <ol
+          class="order-list flex gap-[30px] mr-[40px] p-[10px] items-center text-white"
+        >
+          <li class="pages"><i class="fa-regular fa-house"></i> Home</li>
+          <li class="pages">
+            <i class="fa-solid fa-people-group"></i> Our Team
+          </li>
+          <li class="pages"><i class="fa-regular fa-user"></i> Gallery</li>
+          <li class="pages">
+            Login <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          </li>
+          <li
+            class="page bg-amber-500 rounded-[8px] text-center p-1 text-white w-[100px] h-[35px]"
+          >
+            Sign Up
+          </li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- body -->
+
+    <div class="ml-[90px] mx-auto">
+      <div class="mt-[40px]">
+        <h1 class="text-[50px] font-bold text-white">
+          Welcome to the <br />
+          Future of <br />
+          Programming
+        </h1>
+
+        <p class="mt-[5px] text-white">
+          Learn.Build.Share.Grow with the Best <br />
+          Programming Community
+        </p>
+      </div>
+
+      <div class="flex gap-[30px] mt-[30px]">
+        <button
+          class="w-[127px] h-[35px] bg-amber-500 text-blue-900 rounded-[8px] font-bold p-1"
+        >
+          Join Club <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <button
+          class="w-[140px] h-[35px] bg-[#F5F5F5] rounded-[8px] p-1 text-blue-900 font-bold"
+        >
+          Explore courses
+        </button>
+      </div>
+    </div>
+
+    <script>
+      
+    </script>
+
+  </body>
+</html>
