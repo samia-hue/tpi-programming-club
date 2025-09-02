@@ -48,7 +48,7 @@
       }
 
       .explore-courses:hover {
-        color: rgba(30, 58, 138, 1);
+        color: white;
         border-bottom: 1px solid black;
         background-color: rgba(245, 158, 11, 1);
         font-weight: bold;
@@ -145,7 +145,8 @@
         }
         .home-body {
           margin-top: 20px;
-          margin-right: 50px;
+          width: 100%;
+          margin: auto;
         }
         .home-sub-title {
           margin-top: 10px;
@@ -215,7 +216,7 @@
         </p>
       </div>
 
-      <div class="flex gap-[30px] mt-[30px]">
+      <div class="w-[300px] mx-auto md:mx-0 flex gap-[30px] mt-[30px]">
         <button
           id="join-club-id"
           class="join-club w-[127px] h-[35px] bg-amber-500 text-blue-900 rounded-[8px] font-bold p-1"
@@ -266,17 +267,29 @@
       const dots = document.querySelector(".menu-icon");
       const menu = document.getElementById("menu-item");
 
+      // hamburger click →
       dots.addEventListener("click", (event) => {
-        menu.style.display = menu.style.display === "block" ? "none" : "block";
-        event.stopPropagation();
+        if (window.innerWidth <= 768) {
+          menu.style.display =
+            menu.style.display === "block" ? "none" : "block";
+          event.stopPropagation();
+        }
       });
 
       document.addEventListener("click", () => {
-        menu.style.display = "none";
+        if (window.innerWidth <= 768) {
+          menu.style.display = "none";
+        }
       });
 
       menu.addEventListener("click", (event) => {
         event.stopPropagation();
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          menu.style.removeProperty("display"); // flex back
+        }
       });
     </script>
   </body>
