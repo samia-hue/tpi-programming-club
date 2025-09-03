@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TPI Programming Club</title>
     <!-- tailwind cdn -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- font awesome cdn -->
 
     <link
@@ -16,13 +16,14 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- favicon ico -->
-    <link rel="icon" type="image/x-icon" href="./favicon-32x32.png">
+    <!-- club logo -->
+     <link rel="icon" type="image/png" href="./favicon-32x32.png" />
+
 
     <!-- style -->
 
     <style>
-      body {
+      .body {
         background-image: url(./bg.png);
         background-repeat: no-repeat;
         background-size: cover;
@@ -136,6 +137,10 @@
           z-index: 10;
         }
 
+        /* when checked, show menu */
+        #menu-toggle:checked ~ .menu {
+          display: block;
+        }
 
         /* home body */
         .body-title {
@@ -160,7 +165,7 @@
       }
     </style>
   </head>
-  <body >
+  <body class="body">
     <!-- navbar -->
 
     <nav class="flex justify-around items-center mx-auto">
@@ -174,11 +179,11 @@
           TPI Programming Club
         </h1>
       </div>
-      <div class="menu-icon ">
+      <div class="menu-icon">
         <i class="fa-solid fa-bars"></i>
       </div>
 
-      <ul
+      <ol
         id="menu-item"
         class="menu order-list flex gap-[30px] mr-[40px] p-[10px] items-center text-white"
       >
@@ -196,7 +201,7 @@
         >
           Sign Up
         </li>
-      </ul>
+      </ol>
     </nav>
 
     <!-- body -->
